@@ -1,29 +1,23 @@
-// import { PrismaClient } from '@prisma/client';
-import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLList, GraphQLObjectType } from 'graphql';
 
 import { prismaClient } from './prismaClient.js';
-import { UUIDType, UUIDTypeNonNull } from './types/uuid.js';
-import { UserType, UsersType } from './types/user.js';
-import { PostType, PostsType } from './types/post.js';
+import { UUIDTypeNonNull } from './types/uuid.js';
+import { UserType } from './types/user.js';
+import { PostType } from './types/post.js';
 import { ProfileType } from './types/profile.js';
-import { MemberTypeType, MemberTypeIdEnum, MemberTypeIdNonNull } from './types/memberType.js';
+import { MemberTypeType, MemberTypeIdEnum } from './types/memberType.js';
 
 import { IUser } from './interfaces/User.js';
 import { IPost } from './interfaces/Post.js';
 import { IProfile } from './interfaces/Profile.js';
 import { IMember } from './interfaces/Member.js';
 
-// const prismaClient = new PrismaClient();
-
-// console.log(222, prismaClient);
-
-
 export const Query = new GraphQLObjectType({
   name: 'Query',
 
   fields: () => ({
     users: {
-      type: UsersType,
+      type: new GraphQLList(UserType),
       resolve: async () => await prismaClient.user.findMany(),
       // resolve: async (parent, args, context) => {
       // return await context.prisma.user.findMany();
@@ -38,7 +32,7 @@ export const Query = new GraphQLObjectType({
     },
 
     posts: {
-      type: PostsType,
+      type: new GraphQLList(PostType),
       resolve: async () => await prismaClient.post.findMany(),
     },
 

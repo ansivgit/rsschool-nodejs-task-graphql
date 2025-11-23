@@ -5,8 +5,6 @@ import { UUIDType } from './uuid.js';
 import { ProfileType } from './profile.js';
 import { PostType } from './post.js';
 import { IUser } from '../interfaces/User.js';
-import { IProfile } from '../interfaces/Profile.js';
-import { IPost } from '../interfaces/Post.js';
 
 export const UserType = new GraphQLObjectType({
   name: 'User',

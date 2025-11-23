@@ -1,11 +1,9 @@
-import { GraphQLObjectType, GraphQLList, GraphQLBoolean, GraphQLInt } from 'graphql';
+import { GraphQLObjectType, GraphQLBoolean, GraphQLInt } from 'graphql';
 import { prismaClient } from '../prismaClient.js';
 
 import { UUIDType } from './uuid.js';
-import { UserType } from './user.js';
-import { IUser } from '../interfaces/User.js';
 import { IProfile } from '../interfaces/Profile.js';
-import { MemberTypeIdNonNull, MemberTypeIdEnum, MemberTypeType } from './memberType.js';
+import { MemberTypeIdEnum, MemberTypeType } from './memberType.js';
 
 export const ProfileType = new GraphQLObjectType({
   name: 'Profile',
@@ -23,5 +21,3 @@ export const ProfileType = new GraphQLObjectType({
     },
   }),
 });
-
-// export const ProfilesType = new GraphQLList(ProfileType);

@@ -8,8 +8,6 @@ export const MemberTypeIdEnum = new GraphQLEnumType({
   values: {
     BASIC: { value: 'BASIC' },
     BUSINESS: { value: 'BUSINESS' },
-    // basic: { value: 'BASIC' },
-    // business: { value: 'BUSINESS' },
   },
 });
 
@@ -29,5 +27,3 @@ export const MemberTypeType = new GraphQLObjectType({
     },
   }),
 });
-
-// export const MemberTypes = new GraphQLList(MemberType);
