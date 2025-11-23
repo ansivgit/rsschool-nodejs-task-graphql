@@ -1,4 +1,4 @@
-import { GraphQLObjectType, GraphQLString, GraphQLFloat, GraphQLList } from 'graphql';
+import { GraphQLObjectType, GraphQLString, GraphQLFloat, GraphQLList, GraphQLNonNull } from 'graphql';
 import { prismaClient } from '../prismaClient.js';
 
 import { UUIDType } from './uuid.js';
@@ -50,4 +50,4 @@ export const UserType = new GraphQLObjectType({
   }),
 });
 
-export const UsersType = new GraphQLList(UserType);
+// export const UsersType = new GraphQLList(UserType);

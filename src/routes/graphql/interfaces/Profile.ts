@@ -5,3 +5,22 @@ export interface IProfile {
   userId: string,
   memberTypeId: 'BASIC' | 'BUSINESS',
 }
+
+export interface INewProfile {
+  dto: {
+    isMale: boolean,
+    yearOfBirth: number,
+    userId: string,
+    memberTypeId: 'BASIC' | 'BUSINESS',
+  }
+}
+
+export interface IProfileInput {
+  id: string;
+  dto: {
+    isMale: boolean,
+    yearOfBirth: number,
+    memberTypeId: 'BASIC' | 'BUSINESS',
+  }
+}
+

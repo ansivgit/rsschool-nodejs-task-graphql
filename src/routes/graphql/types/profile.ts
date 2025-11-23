@@ -4,6 +4,7 @@ import { prismaClient } from '../prismaClient.js';
 import { UUIDType } from './uuid.js';
 import { IProfile } from '../interfaces/Profile.js';
 import { MemberTypeIdEnum, MemberTypeType } from './memberType.js';
+import { UserType } from './user.js';
 
 export const ProfileType = new GraphQLObjectType({
   name: 'Profile',
@@ -12,6 +13,11 @@ export const ProfileType = new GraphQLObjectType({
     isMale: { type: GraphQLBoolean },
     yearOfBirth: { type: GraphQLInt },
     userId: { type: UUIDType },
+    user: {
+      type: UserType,
+      resolve: async ({ userId }: IProfile) =>
+        prismaClient.user.findFirst({ where: { id: userId } }),
+    },
     memberTypeId: { type: MemberTypeIdEnum },
     memberType: {
       type: MemberTypeType,
